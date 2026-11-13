@@ -28,9 +28,9 @@ export function GiftSection() {
     <section id="gift" className="section-padding bg-ivory">
       <div className="editorial-container">
         <SectionHeader
-          eyebrow="Wedding Registry"
-          title="A Token of Love"
-          subtitle="Your presence at our celebration is the most meaningful gift of all. Should you wish to send a blessing, our registry details are below."
+          eyebrow="Hộp Mừng Cưới"
+          title="Gửi Trao Yêu Thương"
+          subtitle="Sự hiện diện của bạn trong ngày vui là món quà ý nghĩa nhất. Nếu không thể tham dự trực tiếp, bạn có thể gửi lời chúc qua thông tin bên dưới."
         />
 
         <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2">
@@ -53,7 +53,7 @@ export function GiftSection() {
                       <div className="relative h-44 w-44 overflow-hidden rounded-2xl border border-burgundy/10 bg-ivory p-2">
                         <Image
                           src={account.qrImage}
-                          alt={`QR code for ${account.recipientName}`}
+                          alt={`Mã QR mừng cưới ${account.recipientName}`}
                           fill
                           sizes="176px"
                           className="object-contain p-2"
@@ -84,12 +84,12 @@ export function GiftSection() {
                       {isCopied ? (
                         <>
                           <Check className="h-3.5 w-3.5" />
-                          <span>Account Copied</span>
+                          <span>Đã Sao Chép Số Tài Khoản</span>
                         </>
                       ) : (
                         <>
                           <Copy className="h-3.5 w-3.5" />
-                          <span>Copy Account Number</span>
+                          <span>Sao Chép Số Tài Khoản</span>
                         </>
                       )}
                     </Button>

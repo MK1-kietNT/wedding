@@ -53,7 +53,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
       });
 
       if (!response.ok) {
-        throw new Error("Unable to submit your RSVP right now.");
+        throw new Error("Không thể gửi phản hồi lúc này. Vui lòng thử lại.");
       }
 
       const data = (await response.json()) as { wish?: GuestWish };
@@ -65,7 +65,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
       reset();
     } catch (error) {
       setServerError(
-        error instanceof Error ? error.message : "Something went wrong. Please try again."
+        error instanceof Error ? error.message : "Đã có lỗi xảy ra. Vui lòng thử lại."
       );
     }
   };
@@ -77,9 +77,9 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
     >
       <div className="editorial-container">
         <SectionHeader
-          eyebrow="Kindly Reply"
-          title="RSVP & Wishes"
-          subtitle="Please confirm your attendance by May 15, 2027, and leave a warm wish for our guestbook."
+          eyebrow="Xác Nhận Tham Dự"
+          title="RSVP & Lời Chúc"
+          subtitle="Vui lòng xác nhận sự có mặt của bạn trước ngày 15/05/2027 và để lại đôi lời chúc phúc cho chúng mình nhé."
         />
 
         <BlurFade delay={0.14} className="mx-auto mt-12 max-w-2xl">
@@ -94,17 +94,17 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                 >
                   <CheckCircle2 className="mx-auto h-11 w-11 text-burgundy" />
                   <h3 className="mt-4 font-editorial text-3xl text-burgundy">
-                    Thank You for Your Reply
+                    Cảm Ơn Bạn Đã Phản Hồi
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-charcoal-muted">
-                    Your response and wedding wish have been recorded in our guestbook below.
+                    Thông tin tham dự và lời chúc của bạn đã được lưu lại trong sổ lưu bút bên dưới.
                   </p>
                   <Button
                     variant="outline"
                     className="mt-7"
                     onClick={() => setSubmitted(false)}
                   >
-                    Submit Another Response
+                    Gửi Thêm Lời Chúc
                   </Button>
                 </motion.div>
               ) : (
@@ -115,11 +115,11 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                         htmlFor="rsvp-name"
                         className="block text-[11px] font-medium uppercase tracking-editorial text-charcoal-muted"
                       >
-                        Full Name
+                        Họ và tên
                       </label>
                       <Input
                         id="rsvp-name"
-                        placeholder="e.g. Sophia Nguyen"
+                        placeholder="Ví dụ: Nguyễn Lan Anh"
                         aria-invalid={Boolean(errors.name)}
                         {...register("name")}
                       />
@@ -133,12 +133,12 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                         htmlFor="rsvp-phone"
                         className="block text-[11px] font-medium uppercase tracking-editorial text-charcoal-muted"
                       >
-                        Phone Number
+                        Số điện thoại
                       </label>
                       <Input
                         id="rsvp-phone"
                         type="tel"
-                        placeholder="e.g. +84 901 234 567"
+                        placeholder="Ví dụ: 0901 234 567"
                         aria-invalid={Boolean(errors.phone)}
                         {...register("phone")}
                       />
@@ -151,7 +151,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div className="space-y-2">
                       <span className="block text-[11px] font-medium uppercase tracking-editorial text-charcoal-muted">
-                        Attendance
+                        Tham dự
                       </span>
                       <div className="grid grid-cols-2 gap-3">
                         <button
@@ -164,7 +164,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                               : "border-burgundy/15 bg-ivory-pure text-charcoal-muted hover:border-burgundy/40"
                           )}
                         >
-                          Joyfully Accepts
+                          Sẽ Tham Dự
                         </button>
                         <button
                           type="button"
@@ -176,7 +176,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                               : "border-burgundy/15 bg-ivory-pure text-charcoal-muted hover:border-burgundy/40"
                           )}
                         >
-                          Regretfully Declines
+                          Không Thể Dự
                         </button>
                       </div>
                     </div>
@@ -186,7 +186,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                         htmlFor="rsvp-guests"
                         className="block text-[11px] font-medium uppercase tracking-editorial text-charcoal-muted"
                       >
-                        Number of Guests
+                        Số lượng khách
                       </label>
                       <Input
                         id="rsvp-guests"
@@ -209,11 +209,11 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                       htmlFor="rsvp-message"
                       className="block text-[11px] font-medium uppercase tracking-editorial text-charcoal-muted"
                     >
-                      Wedding Wish &amp; Note
+                      Lời chúc gửi cô dâu &amp; chú rể
                     </label>
                     <Textarea
                       id="rsvp-message"
-                      placeholder="Share a heartfelt wish or dietary note for the couple..."
+                      placeholder="Gửi lời chúc phúc hoặc ghi chú món ăn (nếu có)..."
                       aria-invalid={Boolean(errors.message)}
                       {...register("message")}
                     />
@@ -235,7 +235,7 @@ export function RsvpSection({ onWishSubmitted }: RsvpSectionProps) {
                     className="w-full"
                   >
                     <Send className="h-3.5 w-3.5" />
-                    <span>{isSubmitting ? "Sending Reply..." : "Confirm RSVP"}</span>
+                    <span>{isSubmitting ? "Đang Gửi Phản Hồi..." : "Gửi Xác Nhận"}</span>
                   </Button>
                 </form>
               )}

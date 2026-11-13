@@ -37,9 +37,9 @@ export function WishesSection({ wishes }: WishesSectionProps) {
     <section id="wishes" className="section-padding overflow-hidden bg-ivory">
       <div className="editorial-container">
         <SectionHeader
-          eyebrow="Guestbook"
-          title="Warmest Wishes"
-          subtitle="Kind words and blessings from the family and friends who walk alongside us."
+          eyebrow="Sổ Lưu Bút"
+          title="Lời Chúc Yêu Thương"
+          subtitle="Những lời chúc tốt đẹp từ gia đình và bạn bè luôn đồng hành cùng chúng mình."
         />
       </div>
 

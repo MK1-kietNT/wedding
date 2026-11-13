@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { INITIAL_GUEST_WISHES, MUSIC_TRACK } from "@/data/wedding";
+import { MUSIC_TRACK } from "@/data/wedding";
 import { SECTION_IDS } from "@/constants/wedding";
 import type { GuestWish } from "@/types/wedding";
 import { useLenis } from "@/hooks/use-lenis";
@@ -23,11 +23,15 @@ import { GiftSection } from "@/sections/gift-section";
 import { RsvpSection } from "@/sections/rsvp-section";
 import { WishesSection } from "@/sections/wishes-section";
 
-export function WeddingExperience() {
+interface WeddingExperienceProps {
+  initialWishes: GuestWish[];
+}
+
+export function WeddingExperience({ initialWishes }: WeddingExperienceProps) {
   const { scrollTo } = useLenis();
   const activeSection = useActiveSection(SECTION_IDS);
   const music = useMusicPlayer(MUSIC_TRACK.src);
-  const [wishes, setWishes] = useState<GuestWish[]>(INITIAL_GUEST_WISHES);
+  const [wishes, setWishes] = useState<GuestWish[]>(initialWishes);
 
   const handleOpenInvitation = () => {
     void music.play();
@@ -71,4 +75,3 @@ export function WeddingExperience() {
     </>
   );
 }
-

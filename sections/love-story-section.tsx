@@ -46,16 +46,16 @@ export function LoveStorySection() {
     >
       <div className="editorial-container">
         <SectionHeader
-          eyebrow="Our Journey"
-          title="A Story Written Quietly"
-          subtitle="Four chapters that brought us from a shared afternoon in Saigon to the evening we say forever."
+          eyebrow="Chuyện Tình Yêu"
+          title="Hành Trình Của Hai Đứa"
+          subtitle="Bốn cột mốc đáng nhớ đưa chúng mình từ buổi chiều gặp gỡ đầu tiên đến ngày chung đôi."
         />
 
         <BlurFade delay={0.15} className="mt-12">
           <div className="relative mx-auto aspect-[16/9] max-w-4xl overflow-hidden rounded-2xl border border-burgundy/10">
             <Image
               src={COUPLE_PROFILE.storyCoverImage}
-              alt="Camille and Julian walking together at dusk"
+              alt="Minh Thư và Hoàng Nam dạo bước lúc hoàng hôn"
               fill
               sizes="(max-width: 1024px) 100vw, 896px"
               className="object-cover transition-transform duration-1000 ease-editorial hover:scale-105"

@@ -40,7 +40,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
       )}
     >
       <nav
-        aria-label="Primary navigation"
+        aria-label="Điều hướng chính"
         className="editorial-container flex h-16 items-center justify-between sm:h-20"
       >
         <a
@@ -99,7 +99,7 @@ export function Navbar({ activeSection, onNavigate }: NavbarProps) {
         <button
           type="button"
           onClick={() => setMobileOpen((prev) => !prev)}
-          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={mobileOpen ? "Đóng menu điều hướng" : "Mở menu điều hướng"}
           aria-expanded={mobileOpen}
           className={cn(
             "flex h-11 w-11 items-center justify-center rounded-full transition-colors lg:hidden",

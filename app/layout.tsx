@@ -5,7 +5,7 @@ import { getWeddingStructuredData } from "@/lib/structured-data";
 import "@/styles/globals.css";
 
 const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
@@ -13,13 +13,13 @@ const cormorant = Cormorant_Garamond({
 });
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const siteTitle = `${COUPLE_PROFILE.bride.firstName} & ${COUPLE_PROFILE.groom.firstName} — Wedding Invitation`;
+const siteTitle = `${COUPLE_PROFILE.bride.firstName} & ${COUPLE_PROFILE.groom.firstName} — Thiệp Mời Cưới`;
 const siteDescription = `${COUPLE_PROFILE.weddingDateDisplay} · ${COUPLE_PROFILE.locationSummary}. ${COUPLE_PROFILE.heroQuote}`;
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     type: "website",
-    locale: "en_US",
+    locale: "vi_VN",
     images: [
       {
         url: COUPLE_PROFILE.heroImage,
@@ -62,7 +62,7 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en"
+      lang="vi"
       className={`${cormorant.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
@@ -76,4 +76,3 @@ export default function RootLayout({
     </html>
   );
 }
-

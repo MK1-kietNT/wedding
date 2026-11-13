@@ -19,7 +19,7 @@ export function LoadingScreen() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          aria-label="Loading wedding invitation"
+          aria-label="Đang tải thiệp mời cưới"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, filter: "blur(6px)" }}
           transition={{ duration: 0.75, ease: EDITORIAL_EASE }}

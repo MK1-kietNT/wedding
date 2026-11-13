@@ -37,7 +37,7 @@ export function MusicPlayer({
 
   return (
     <motion.aside
-      aria-label="Background music player"
+      aria-label="Trình phát nhạc nền"
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.4, ease: EDITORIAL_EASE }}
@@ -48,7 +48,7 @@ export function MusicPlayer({
           <button
             type="button"
             onClick={onTogglePlay}
-            aria-label={isPlaying ? "Pause wedding music" : "Play wedding music"}
+            aria-label={isPlaying ? "Tạm dừng nhạc cưới" : "Phát nhạc cưới"}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-burgundy text-ivory transition-transform duration-300 hover:scale-105 hover:bg-burgundy-light"
           >
             {isPlaying ? (
@@ -105,7 +105,7 @@ export function MusicPlayer({
                 ))}
               </div>
               <p className="truncate text-[11px] text-charcoal-muted">
-                {isPlaying ? "Playing Prelude" : "Paused"} · {formatTime(currentTime)}
+                {isPlaying ? "Đang phát nhạc" : "Đang tạm dừng"} · {formatTime(currentTime)}
               </p>
             </div>
           </div>
@@ -113,7 +113,7 @@ export function MusicPlayer({
           <button
             type="button"
             onClick={() => setExpanded((prev) => !prev)}
-            aria-label={expanded ? "Collapse audio controls" : "Expand audio controls"}
+            aria-label={expanded ? "Thu gọn điều khiển nhạc" : "Mở rộng điều khiển nhạc"}
             aria-expanded={expanded}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-charcoal-muted transition-colors hover:bg-burgundy/5 hover:text-burgundy"
           >
@@ -142,7 +142,7 @@ export function MusicPlayer({
                   </div>
                   <input
                     type="range"
-                    aria-label="Music playback progress"
+                    aria-label="Tiến độ phát nhạc"
                     min={0}
                     max={duration || 30}
                     step={0.5}
@@ -156,7 +156,7 @@ export function MusicPlayer({
                   <button
                     type="button"
                     onClick={() => onVolumeChange(volume === 0 ? 0.55 : 0)}
-                    aria-label={volume === 0 ? "Unmute music" : "Mute music"}
+                    aria-label={volume === 0 ? "Bật âm thanh" : "Tắt tiếng"}
                     className="flex h-11 w-11 items-center justify-center rounded-full text-charcoal-muted transition-colors hover:text-burgundy"
                   >
                     {volume === 0 ? (
@@ -167,7 +167,7 @@ export function MusicPlayer({
                   </button>
                   <input
                     type="range"
-                    aria-label="Music volume"
+                    aria-label="Âm lượng nhạc nền"
                     min={0}
                     max={1}
                     step={0.05}

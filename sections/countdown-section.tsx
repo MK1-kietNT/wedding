@@ -73,10 +73,10 @@ export function CountdownSection() {
       <div className="editorial-container relative z-10 text-center">
         <BlurFade>
           <p className="text-[11px] uppercase tracking-wideEditorial text-gold-soft">
-            Counting Every Moment
+            Đếm Ngược Từng Khoảnh Khắc
           </p>
           <h2 className="mt-4 font-editorial text-display-lg font-normal text-ivory">
-            Until We Say I Do
+            Đến Ngày Chung Đôi
           </h2>
           <p className="mt-3 text-xs uppercase tracking-editorial text-ivory/75">
             {COUPLE_PROFILE.weddingDateDisplay} · {COUPLE_PROFILE.locationSummary}
@@ -84,10 +84,10 @@ export function CountdownSection() {
         </BlurFade>
 
         <div className="mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
-          <CountdownUnit value={timeLeft.days} label="Days" />
-          <CountdownUnit value={timeLeft.hours} label="Hours" />
-          <CountdownUnit value={timeLeft.minutes} label="Minutes" />
-          <CountdownUnit value={timeLeft.seconds} label="Seconds" />
+          <CountdownUnit value={timeLeft.days} label="Ngày" />
+          <CountdownUnit value={timeLeft.hours} label="Giờ" />
+          <CountdownUnit value={timeLeft.minutes} label="Phút" />
+          <CountdownUnit value={timeLeft.seconds} label="Giây" />
         </div>
       </div>
     </section>

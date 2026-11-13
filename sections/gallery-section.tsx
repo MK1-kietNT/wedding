@@ -27,9 +27,9 @@ export function GallerySection() {
     <section id="gallery" className="section-padding bg-ivory">
       <div className="editorial-container">
         <SectionHeader
-          eyebrow="The Editorial"
-          title="Captured Moments"
-          subtitle="A quiet collection of frames leading up to our wedding day. Click any photograph to view in fullscreen."
+          eyebrow="Album Ảnh Cưới"
+          title="Khoảnh Khắc Lưu Giữ"
+          subtitle="Những khung hình dịu dàng trước ngày trọng đại. Nhấn vào từng ảnh để xem toàn màn hình."
         />
 
         <div className="mt-14 columns-1 gap-6 space-y-6 sm:columns-2 lg:columns-3">
@@ -42,7 +42,7 @@ export function GallerySection() {
               <button
                 type="button"
                 onClick={() => setLightboxIndex(index)}
-                aria-label={`Open ${photo.caption} in fullscreen`}
+                aria-label={`Mở ảnh ${photo.caption} toàn màn hình`}
                 className="group relative block w-full overflow-hidden rounded-2xl border border-burgundy/10 bg-ivory-pure text-left transition-all duration-500 ease-editorial hover:-translate-y-1 hover:border-gold/50"
               >
                 <div

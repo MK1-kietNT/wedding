@@ -14,9 +14,9 @@ export function EventsSection() {
     >
       <div className="editorial-container">
         <SectionHeader
-          eyebrow="Schedule & Venues"
-          title="Wedding Ceremonies"
-          subtitle="We are honored to welcome you to two intimate gatherings celebrating both families."
+          eyebrow="Thời Gian & Địa Điểm"
+          title="Lịch Trình Hôn Lễ"
+          subtitle="Chúng mình hân hạnh được đón tiếp bạn tại hai buổi lễ ấm cúng của hai bên gia đình."
         />
 
         <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2">
@@ -58,7 +58,7 @@ export function EventsSection() {
 
                     <div className="flex items-start gap-3 text-sm text-charcoal-muted">
                       <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-gold-muted" />
-                      <span className="text-xs">Dress code: {event.dressCode}</span>
+                      <span className="text-xs">Trang phục gợi ý: {event.dressCode}</span>
                     </div>
                   </CardContent>
                 </div>
@@ -72,7 +72,7 @@ export function EventsSection() {
                   >
                     <Button variant="outline" className="w-full">
                       <MapPin className="h-3.5 w-3.5" />
-                      <span>Open Google Maps</span>
+                      <span>Xem Bản Đồ Google Maps</span>
                     </Button>
                   </a>
                 </div>

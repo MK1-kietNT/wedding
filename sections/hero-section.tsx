@@ -37,7 +37,7 @@ export function HeroSection({ onOpenInvitation }: HeroSectionProps) {
       >
         <Image
           src={COUPLE_PROFILE.heroImage}
-          alt={`${COUPLE_PROFILE.bride.firstName} and ${COUPLE_PROFILE.groom.firstName} wedding portrait`}
+          alt={`Ảnh cưới ${COUPLE_PROFILE.bride.firstName} và ${COUPLE_PROFILE.groom.firstName}`}
           fill
           priority
           sizes="100vw"
@@ -122,7 +122,7 @@ export function HeroSection({ onOpenInvitation }: HeroSectionProps) {
               onClick={onOpenInvitation}
               className="border border-gold/40"
             >
-              <span>Open Invitation</span>
+              <span>Mở Thiệp Mời</span>
               <ArrowDown className="h-3.5 w-3.5" />
             </Button>
           </MagneticButton>

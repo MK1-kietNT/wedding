@@ -1,13 +1,13 @@
 import type { NavItem } from "@/types/wedding";
 
 export const NAVIGATION_ITEMS: NavItem[] = [
-  { id: "invitation", label: "Invitation", href: "#invitation" },
-  { id: "story", label: "Our Story", href: "#story" },
-  { id: "gallery", label: "Gallery", href: "#gallery" },
-  { id: "events", label: "Ceremonies", href: "#events" },
-  { id: "gift", label: "Gift", href: "#gift" },
-  { id: "rsvp", label: "RSVP", href: "#rsvp" },
-  { id: "wishes", label: "Wishes", href: "#wishes" },
+  { id: "invitation", label: "Lời Mời", href: "#invitation" },
+  { id: "story", label: "Chuyện Tình", href: "#story" },
+  { id: "gallery", label: "Album Ảnh", href: "#gallery" },
+  { id: "events", label: "Lịch Trình", href: "#events" },
+  { id: "gift", label: "Mừng Cưới", href: "#gift" },
+  { id: "rsvp", label: "Xác Nhận", href: "#rsvp" },
+  { id: "wishes", label: "Lời Chúc", href: "#wishes" },
 ];
 
 export const SECTION_IDS = [
@@ -25,4 +25,3 @@ export const SECTION_IDS = [
 export const EDITORIAL_EASE = [0.22, 1, 0.36, 1] as const;
 
 export const MUSIC_STORAGE_KEY = "wedding-editorial-music-state";
-
