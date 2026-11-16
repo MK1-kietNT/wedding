@@ -29,6 +29,7 @@ export const rsvpSchema = z.object({
     .max(400, "Lời chúc tối đa 400 ký tự.")
     .optional()
     .default("Chúc mừng hạnh phúc hai bạn!"),
+  source: z.enum(["rsvp", "wish"]).optional().default("rsvp"),
 });
 
 export type RsvpFormValues = z.infer<typeof rsvpSchema>;

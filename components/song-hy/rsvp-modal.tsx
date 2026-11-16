@@ -46,6 +46,7 @@ export function RsvpModal({ isOpen, onClose, onSubmitted }: RsvpModalProps) {
             (attendance === "attending"
               ? "Hẹn gặp hai bạn trong ngày vui!"
               : "Chúc hai bạn trăm năm hạnh phúc!"),
+          source: "rsvp",
         }),
       });
 

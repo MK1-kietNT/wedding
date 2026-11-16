@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { rsvpSchema } from "@/lib/validations/rsvp";
 import {
   deleteGuestWish,
+  deleteRsvpRecord,
   getGuestWishes,
   saveRsvpSubmission,
 } from "@/lib/rsvp-store";
@@ -48,6 +49,7 @@ export async function DELETE(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id")?.trim();
+    const type = searchParams.get("type")?.trim() ?? "wish";
     const adminKey = searchParams.get("key")?.trim();
     const configuredKey = process.env.ADMIN_DELETE_KEY;
 
@@ -73,7 +75,10 @@ export async function DELETE(request: Request) {
       );
     }
 
-    const deleted = await deleteGuestWish(id);
+    const deleted =
+      type === "rsvp"
+        ? await deleteRsvpRecord(id)
+        : await deleteGuestWish(id);
     if (!deleted) {
       return NextResponse.json(
         { error: "Không tìm thấy lời chúc để xóa." },

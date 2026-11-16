@@ -74,6 +74,7 @@ export function SongHyWishes({
           attendance: "attending",
           guestsCount: 1,
           message: message.trim(),
+          source: "wish",
         }),
       });
 

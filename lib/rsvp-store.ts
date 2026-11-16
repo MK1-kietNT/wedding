@@ -11,7 +11,7 @@ const LOCAL_DATA_DIR = path.join(process.cwd(), ".data");
 const LOCAL_WISHES_FILE = path.join(LOCAL_DATA_DIR, "wishes.json");
 const LOCAL_RSVPS_FILE = path.join(LOCAL_DATA_DIR, "rsvps.json");
 
-interface StoredRsvpRecord extends RsvpFormValues {
+export interface StoredRsvpRecord extends RsvpFormValues {
   id: string;
   createdAt: string;
 }
@@ -67,11 +67,14 @@ export async function saveRsvpSubmission(
   const createdAt = new Date().toISOString();
   const id = `wish-${Date.now()}`;
 
+  const isWishOnly = input.source === "wish";
+
   const wish: GuestWish = {
     id,
     name: input.name,
-    relation:
-      input.attendance === "attending"
+    relation: isWishOnly
+      ? "Gửi lời chúc"
+      : input.attendance === "attending"
         ? `Tham dự · ${input.guestsCount} khách`
         : "Gửi lời chúc từ xa",
     message: input.message,
@@ -88,22 +91,30 @@ export async function saveRsvpSubmission(
   const redis = getRedisClient();
 
   if (redis) {
-    await Promise.all([
-      redis.lpush(WISHES_KEY, wish),
-      redis.lpush(RSVPS_KEY, rsvpRecord),
-    ]);
+    if (isWishOnly) {
+      await redis.lpush(WISHES_KEY, wish);
+    } else {
+      await Promise.all([
+        redis.lpush(WISHES_KEY, wish),
+        redis.lpush(RSVPS_KEY, rsvpRecord),
+      ]);
+    }
     return wish;
   }
 
-  const [existingWishes, existingRsvps] = await Promise.all([
-    readLocalJson<GuestWish[]>(LOCAL_WISHES_FILE, []),
-    readLocalJson<StoredRsvpRecord[]>(LOCAL_RSVPS_FILE, []),
-  ]);
-
-  await Promise.all([
-    writeLocalJson(LOCAL_WISHES_FILE, [wish, ...existingWishes]),
-    writeLocalJson(LOCAL_RSVPS_FILE, [rsvpRecord, ...existingRsvps]),
-  ]);
+  const existingWishes = await readLocalJson<GuestWish[]>(LOCAL_WISHES_FILE, []);
+  if (isWishOnly) {
+    await writeLocalJson(LOCAL_WISHES_FILE, [wish, ...existingWishes]);
+  } else {
+    const existingRsvps = await readLocalJson<StoredRsvpRecord[]>(
+      LOCAL_RSVPS_FILE,
+      []
+    );
+    await Promise.all([
+      writeLocalJson(LOCAL_WISHES_FILE, [wish, ...existingWishes]),
+      writeLocalJson(LOCAL_RSVPS_FILE, [rsvpRecord, ...existingRsvps]),
+    ]);
+  }
 
   return wish;
 }
@@ -129,6 +140,44 @@ export async function deleteGuestWish(id: string): Promise<boolean> {
   if (filtered.length === existingWishes.length) return false;
 
   await writeLocalJson(LOCAL_WISHES_FILE, filtered);
+  return true;
+}
+
+export async function getRsvpRecords(): Promise<StoredRsvpRecord[]> {
+  const redis = getRedisClient();
+
+  if (redis) {
+    try {
+      const stored = await redis.lrange<StoredRsvpRecord>(RSVPS_KEY, 0, -1);
+      return stored;
+    } catch {
+      return [];
+    }
+  }
+
+  return readLocalJson<StoredRsvpRecord[]>(LOCAL_RSVPS_FILE, []);
+}
+
+export async function deleteRsvpRecord(id: string): Promise<boolean> {
+  const redis = getRedisClient();
+
+  if (redis) {
+    const stored = await redis.lrange<StoredRsvpRecord>(RSVPS_KEY, 0, -1);
+    const filtered = stored.filter((item) => item.id !== id);
+    if (filtered.length === stored.length) return false;
+
+    await redis.del(RSVPS_KEY);
+    if (filtered.length > 0) {
+      await redis.rpush(RSVPS_KEY, ...filtered);
+    }
+    return true;
+  }
+
+  const existing = await readLocalJson<StoredRsvpRecord[]>(LOCAL_RSVPS_FILE, []);
+  const filtered = existing.filter((item) => item.id !== id);
+  if (filtered.length === existing.length) return false;
+
+  await writeLocalJson(LOCAL_RSVPS_FILE, filtered);
   return true;
 }
 
