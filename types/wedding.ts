@@ -1,14 +1,19 @@
+export interface ParentNames {
+  father: string;
+  mother: string;
+}
+
 export interface CoupleProfile {
   bride: {
     firstName: string;
     fullName: string;
-    parents: string;
+    parents: ParentNames;
     role: string;
   };
   groom: {
     firstName: string;
     fullName: string;
-    parents: string;
+    parents: ParentNames;
     role: string;
   };
   monogram: string;
@@ -18,23 +23,36 @@ export interface CoupleProfile {
   locationSummary: string;
   heroQuote: string;
   heroImage: string;
-  storyCoverImage: string;
 }
 
-export interface InvitationContent {
-  eyebrow: string;
-  heading: string;
-  paragraphs: string[];
-  signature: string;
-}
-
-export interface LoveStoryMilestone {
-  id: string;
-  phase: string;
-  date: string;
+export interface ConciseCeremony {
+  id: "vu-quy" | "tiec-cuoi";
   title: string;
-  description: string;
-  location: string;
+  time: string;
+  dayOfWeek: string;
+  day: string;
+  month: string;
+  year: string;
+  lunarDate: string;
+  venue?: string;
+}
+
+export interface ReceptionDetails {
+  time: string;
+  dayOfWeek: string;
+  day: string;
+  month: string;
+  year: string;
+  lunarDate: string;
+  welcomeTime: string;
+  partyTime: string;
+  venueName: string;
+  venueAddress: string;
+  mapsUrl: string;
+  mapsEmbedQuery: string;
+  calendarTitle: string;
+  calendarStartISO: string;
+  calendarEndISO: string;
 }
 
 export interface GalleryPhoto {
@@ -42,7 +60,6 @@ export interface GalleryPhoto {
   src: string;
   alt: string;
   caption: string;
-  aspect: "portrait" | "landscape";
   width: number;
   height: number;
 }
@@ -89,4 +106,3 @@ export interface NavItem {
   label: string;
   href: string;
 }
-

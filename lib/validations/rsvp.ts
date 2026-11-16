@@ -9,22 +9,26 @@ export const rsvpSchema = z.object({
   phone: z
     .string()
     .trim()
-    .min(8, "Vui lòng nhập số điện thoại hợp lệ.")
     .max(20, "Số điện thoại quá dài.")
-    .regex(/^[+\d\s()-]+$/, "Số điện thoại chỉ gồm chữ số và ký tự hợp lệ."),
-  attendance: z.enum(["attending", "declining"], {
-    required_error: "Vui lòng chọn trạng thái tham dự.",
-  }),
+    .optional()
+    .default(""),
+  attendance: z
+    .enum(["attending", "declining"])
+    .optional()
+    .default("attending"),
   guestsCount: z.coerce
     .number()
     .int()
     .min(1, "Tối thiểu 1 khách.")
-    .max(6, "Tối đa 6 khách mỗi thiệp mời."),
+    .max(6, "Tối đa 6 khách mỗi thiệp mời.")
+    .optional()
+    .default(1),
   message: z
     .string()
     .trim()
-    .min(4, "Vui lòng gửi đôi lời chúc mừng đến cô dâu & chú rể.")
-    .max(400, "Lời chúc tối đa 400 ký tự."),
+    .max(400, "Lời chúc tối đa 400 ký tự.")
+    .optional()
+    .default("Chúc mừng hạnh phúc hai bạn!"),
 });
 
 export type RsvpFormValues = z.infer<typeof rsvpSchema>;

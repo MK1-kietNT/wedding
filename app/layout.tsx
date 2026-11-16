@@ -1,26 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Be_Vietnam_Pro, Carattere, Noto_Serif } from "next/font/google";
 import { COUPLE_PROFILE } from "@/data/wedding";
 import { getWeddingStructuredData } from "@/lib/structured-data";
 import "@/styles/globals.css";
 
-const cormorant = Cormorant_Garamond({
+const carattere = Carattere({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  weight: ["400"],
+  variable: "--font-script",
   display: "swap",
 });
 
-const inter = Inter({
+const notoSerif = Noto_Serif({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["400", "600", "700"],
+  variable: "--font-serif-vn",
   display: "swap",
 });
 
-const siteTitle = `${COUPLE_PROFILE.bride.firstName} & ${COUPLE_PROFILE.groom.firstName} — Thiệp Mời Cưới`;
-const siteDescription = `${COUPLE_PROFILE.weddingDateDisplay} · ${COUPLE_PROFILE.locationSummary}. ${COUPLE_PROFILE.heroQuote}`;
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans-vn",
+  display: "swap",
+});
+
+const siteTitle = `${COUPLE_PROFILE.groom.fullName} & ${COUPLE_PROFILE.bride.fullName} — Thiệp Mời Cưới`;
+const siteDescription = `${COUPLE_PROFILE.weddingDateDisplay}. ${COUPLE_PROFILE.heroQuote}`;
 
 export const metadata: Metadata = {
   title: siteTitle,
@@ -48,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#6E0F1D",
+  themeColor: "#7a0808",
   width: "device-width",
   initialScale: 1,
 };
@@ -63,10 +69,10 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${cormorant.variable} ${inter.variable}`}
+      className={`${carattere.variable} ${notoSerif.variable} ${beVietnamPro.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-ivory text-charcoal antialiased">
+      <body className="bg-white text-[#990000] antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

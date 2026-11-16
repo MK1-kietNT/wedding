@@ -1,77 +1,100 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 import { MUSIC_TRACK } from "@/data/wedding";
-import { SECTION_IDS } from "@/constants/wedding";
 import type { GuestWish } from "@/types/wedding";
-import { useLenis } from "@/hooks/use-lenis";
-import { useActiveSection } from "@/hooks/use-active-section";
 import { useMusicPlayer } from "@/hooks/use-music-player";
-import { LoadingScreen } from "@/components/common/loading-screen";
-import { ScrollProgress } from "@/components/common/scroll-progress";
-import { MouseFollowLight } from "@/components/common/mouse-follow-light";
-import { MusicPlayer } from "@/components/common/music-player";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { HeroSection } from "@/sections/hero-section";
-import { InvitationSection } from "@/sections/invitation-section";
-import { LoveStorySection } from "@/sections/love-story-section";
-import { GallerySection } from "@/sections/gallery-section";
-import { EventsSection } from "@/sections/events-section";
-import { CountdownSection } from "@/sections/countdown-section";
-import { GiftSection } from "@/sections/gift-section";
-import { RsvpSection } from "@/sections/rsvp-section";
-import { WishesSection } from "@/sections/wishes-section";
+import { OpeningGate } from "@/components/song-hy/opening-gate";
+import { FloatingPetals } from "@/components/song-hy/motifs";
+import { RsvpModal } from "@/components/song-hy/rsvp-modal";
+import { GiftModal } from "@/components/song-hy/gift-modal";
+import { SongHyHero } from "@/sections/song-hy-hero";
+import { SongHyCeremony } from "@/sections/song-hy-ceremony";
+import { SongHyAlbum } from "@/sections/song-hy-album";
+import { SongHyReception } from "@/sections/song-hy-reception";
+import { SongHyVenue } from "@/sections/song-hy-venue";
+import { SongHyWishes } from "@/sections/song-hy-wishes";
+import { SongHyGift } from "@/sections/song-hy-gift";
 
 interface WeddingExperienceProps {
   initialWishes: GuestWish[];
 }
 
 export function WeddingExperience({ initialWishes }: WeddingExperienceProps) {
-  const { scrollTo } = useLenis();
-  const activeSection = useActiveSection(SECTION_IDS);
   const music = useMusicPlayer(MUSIC_TRACK.src);
+  const [isOpened, setIsOpened] = useState(false);
+  const [rsvpOpen, setRsvpOpen] = useState(false);
+  const [giftOpen, setGiftOpen] = useState(false);
   const [wishes, setWishes] = useState<GuestWish[]>(initialWishes);
 
   const handleOpenInvitation = () => {
+    setIsOpened(true);
     void music.play();
-    scrollTo("#invitation");
   };
 
   const handleWishSubmitted = (newWish: GuestWish) => {
     setWishes((prev) => [newWish, ...prev]);
   };
 
-  return (
-    <>
-      <LoadingScreen />
-      <ScrollProgress />
-      <MouseFollowLight />
-      <Navbar activeSection={activeSection} onNavigate={scrollTo} />
+  const handleWishDeleted = (id: string) => {
+    setWishes((prev) => prev.filter((item) => item.id !== id));
+  };
 
-      <main className="relative">
-        <HeroSection onOpenInvitation={handleOpenInvitation} />
-        <InvitationSection />
-        <LoveStorySection />
-        <GallerySection />
-        <EventsSection />
-        <CountdownSection />
-        <GiftSection />
-        <RsvpSection onWishSubmitted={handleWishSubmitted} />
-        <WishesSection wishes={wishes} />
+  return (
+    <div className="min-h-screen bg-white">
+      <AnimatePresence>
+        {!isOpened && <OpeningGate onOpen={handleOpenInvitation} />}
+      </AnimatePresence>
+
+      {isOpened && <FloatingPetals />}
+
+      {/* Centered Song Hỷ V2 Đỏ Column */}
+      <main className="mx-auto min-h-screen w-full max-w-[480px] overflow-hidden bg-[#7a0808] shadow-[0_0_50px_rgba(0,0,0,0.18)] md:max-w-[780px] md:border-x md:border-[#ffe8a4]/25">
+        <SongHyHero />
+        <SongHyCeremony />
+        <SongHyAlbum />
+        <SongHyReception onOpenRsvp={() => setRsvpOpen(true)} />
+        <SongHyVenue />
+        <SongHyWishes
+          wishes={wishes}
+          onWishSubmitted={handleWishSubmitted}
+          onWishDeleted={handleWishDeleted}
+        />
+        <SongHyGift onOpenGift={() => setGiftOpen(true)} />
       </main>
 
-      <Footer />
+      {/* Floating Music Toggle Button */}
+      {isOpened && (
+        <button
+          type="button"
+          onClick={music.togglePlay}
+          aria-label={music.isPlaying ? "Tạm dừng nhạc" : "Phát nhạc"}
+          title={music.isPlaying ? "Tạm dừng nhạc" : "Phát nhạc"}
+          className="fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-[#ffe8a4]/70 bg-[#5e0404]/90 text-[#ffe8a4] shadow-lg backdrop-blur-sm transition hover:scale-105 hover:bg-[#4d0000]"
+        >
+          {music.isPlaying ? (
+            <>
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 animate-ping rounded-full bg-[#ffe8a4]/25"
+              />
+              <Volume2 className="relative z-10 h-5 w-5" />
+            </>
+          ) : (
+            <VolumeX className="h-5 w-5 opacity-75" />
+          )}
+        </button>
+      )}
 
-      <MusicPlayer
-        isPlaying={music.isPlaying}
-        volume={music.volume}
-        currentTime={music.currentTime}
-        duration={music.duration}
-        onTogglePlay={music.togglePlay}
-        onVolumeChange={music.setVolume}
-        onSeek={music.seek}
+      <RsvpModal
+        isOpen={rsvpOpen}
+        onClose={() => setRsvpOpen(false)}
+        onSubmitted={handleWishSubmitted}
       />
-    </>
+
+      <GiftModal isOpen={giftOpen} onClose={() => setGiftOpen(false)} />
+    </div>
   );
 }

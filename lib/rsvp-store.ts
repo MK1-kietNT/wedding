@@ -108,3 +108,27 @@ export async function saveRsvpSubmission(
   return wish;
 }
 
+export async function deleteGuestWish(id: string): Promise<boolean> {
+  const redis = getRedisClient();
+
+  if (redis) {
+    const stored = await redis.lrange<GuestWish>(WISHES_KEY, 0, -1);
+    const filtered = stored.filter((item) => item.id !== id);
+    if (filtered.length === stored.length) return false;
+
+    await redis.del(WISHES_KEY);
+    if (filtered.length > 0) {
+      // rpush preserves the existing newest-first order
+      await redis.rpush(WISHES_KEY, ...filtered);
+    }
+    return true;
+  }
+
+  const existingWishes = await readLocalJson<GuestWish[]>(LOCAL_WISHES_FILE, []);
+  const filtered = existingWishes.filter((item) => item.id !== id);
+  if (filtered.length === existingWishes.length) return false;
+
+  await writeLocalJson(LOCAL_WISHES_FILE, filtered);
+  return true;
+}
+

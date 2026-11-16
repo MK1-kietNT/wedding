@@ -10,44 +10,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        burgundy: {
-          DEFAULT: "#6E0F1D",
-          deep: "#540A15",
-          light: "#7C1020",
-          muted: "#8F2A38",
+        crimson: {
+          DEFAULT: "#7a0808",
+          deep: "#4d0000",
+          rich: "#990000",
+          dark: "#630505",
         },
-        ivory: {
-          DEFAULT: "#FAF8F5",
-          warm: "#F4EFE8",
-          pure: "#FFFFFF",
+        cream: {
+          DEFAULT: "#fdf9ec",
+          warm: "#f8f0da",
         },
-        gold: {
-          DEFAULT: "#C7A96B",
-          soft: "#DFCAA0",
-          muted: "#A6894E",
+        champagne: {
+          DEFAULT: "#ffe8a4",
+          gold: "#e8c987",
+          soft: "#f5d076",
         },
-        charcoal: {
-          DEFAULT: "#1E1E1E",
-          muted: "#5A5450",
-          subtle: "#8C847E",
-        },
-        border: "rgba(110, 15, 29, 0.12)",
       },
       fontFamily: {
-        serif: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-      },
-      borderRadius: {
-        lg: "0.75rem",
-        md: "0.5rem",
-        sm: "0.25rem",
-      },
-      letterSpacing: {
-        editorial: "0.22em",
-        wideEditorial: "0.32em",
-      },
-      transitionTimingFunction: {
-        editorial: "cubic-bezier(0.22, 1, 0.36, 1)",
+        script: ["var(--font-script)", "cursive"],
+        serif: ["var(--font-serif-vn)", "Times New Roman", "serif"],
+        sans: ["var(--font-sans-vn)", "Helvetica Neue", "Arial", "sans-serif"],
       },
     },
   },
@@ -55,4 +37,3 @@ const config: Config = {
 };
 
 export default config;
-
