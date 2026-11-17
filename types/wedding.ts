@@ -26,7 +26,7 @@ export interface CoupleProfile {
 }
 
 export interface ConciseCeremony {
-  id: "vu-quy" | "tiec-cuoi";
+  id: "thanh-hon" | "vu-quy" | "than-mat";
   title: string;
   time: string;
   dayOfWeek: string;
@@ -35,6 +35,7 @@ export interface ConciseCeremony {
   year: string;
   lunarDate: string;
   venue?: string;
+  mapsUrl?: string;
 }
 
 export interface ReceptionDetails {
