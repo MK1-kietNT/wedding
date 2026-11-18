@@ -51,7 +51,7 @@ export function WeddingExperience({ initialWishes }: WeddingExperienceProps) {
       {isOpened && <FloatingPetals />}
 
       {/* Centered Song Hỷ V2 Đỏ Column */}
-      <main className="mx-auto min-h-screen w-full max-w-[480px] overflow-hidden bg-[#7a0808] shadow-[0_0_50px_rgba(0,0,0,0.18)] md:max-w-[780px] md:border-x md:border-[#ffe8a4]/25">
+      <main className="mx-auto min-h-screen w-full max-w-[480px] overflow-hidden bg-[#7a0808] font-serif shadow-[0_0_50px_rgba(0,0,0,0.18)] md:max-w-[780px] md:border-x md:border-[#ffe8a4]/25">
         <SongHyHero />
         <SongHyCeremony />
         <SongHyAlbum />

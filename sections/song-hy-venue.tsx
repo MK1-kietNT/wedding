@@ -20,7 +20,7 @@ const VENUE_TABS = [
     venueName: "Tư Gia Nhà Gái",
     venueAddress: "Xóm Long Bình, Nam Đàn, Nghệ An",
     mapsUrl: "https://maps.app.goo.gl/TRHkUPFAdXNQFTuu6",
-    mapsEmbedQuery: "Xóm Long Bình, Nam Đàn, Nghệ An",
+    mapsEmbedQuery: "18.746266,105.460898",
   },
 ] as const;
 
@@ -32,7 +32,7 @@ export function SongHyVenue() {
 
   const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
     currentVenue.mapsEmbedQuery
-  )}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+  )}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section className="relative overflow-hidden px-5 py-10 text-center md:px-10">

@@ -143,7 +143,10 @@ export function SongHyAlbum() {
 
               {/* Subtle bottom gradient + caption pill */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-8 text-center">
-                <p className="font-serif text-xs font-medium tracking-wider text-[#ffe8a4]">
+                <p
+                  style={{ fontFamily: "var(--font-gate-script), cursive" }}
+                  className="text-xl font-normal tracking-wide text-[#ffe8a4] drop-shadow-sm md:text-2xl"
+                >
                   {activePhoto.caption}
                 </p>
               </div>

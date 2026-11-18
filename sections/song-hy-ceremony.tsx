@@ -54,15 +54,18 @@ export function SongHyCeremony() {
             Hai gia đình trân trọng báo tin lễ thành hôn của hai con chúng tôi
           </p>
 
-          {/* Couple Names in Carattere Script */}
-          <div className="mt-4 text-center">
-            <h3 className="font-script text-[34px] leading-[1.15] text-[#990000] sm:text-[40px] md:text-[50px]">
+          {/* Couple Names in Philosopher (UTM Essendine Caps style) */}
+          <div
+            style={{ fontFamily: "var(--font-couple-serif), serif" }}
+            className="mt-5 text-center uppercase tracking-[0.06em] text-[#990000]"
+          >
+            <h3 className="text-[26px] font-normal leading-[1.2] sm:text-[32px] md:text-[38px]">
               {COUPLE_PROFILE.groom.fullName}
             </h3>
-            <p className="font-script text-2xl leading-none text-[#990000]/80 md:text-3xl">
+            <p className="my-1 text-xl leading-none text-[#990000]/80 md:text-2xl">
               &amp;
             </p>
-            <h3 className="font-script text-[34px] leading-[1.15] text-[#990000] sm:text-[40px] md:text-[50px]">
+            <h3 className="text-[26px] font-normal leading-[1.2] sm:text-[32px] md:text-[38px]">
               {COUPLE_PROFILE.bride.fullName}
             </h3>
           </div>
@@ -81,7 +84,7 @@ export function SongHyCeremony() {
                   </p>
                   <p className="mt-0.5 font-serif text-sm font-bold text-[#990000] md:text-base">
                     {thanhHon.day}.{thanhHon.month}.{thanhHon.year}{" "}
-                    <span className="font-sans text-[11px] font-normal italic text-[#990000]/80">
+                    <span className="font-serif text-[11px] font-normal italic text-[#990000]/80">
                       {thanhHon.lunarDate}
                     </span>
                   </p>
@@ -127,7 +130,7 @@ export function SongHyCeremony() {
                   </p>
                   <p className="mt-0.5 font-serif text-sm font-bold text-[#990000] md:text-base">
                     {vuQuy.day}.{vuQuy.month}.{vuQuy.year}{" "}
-                    <span className="font-sans text-[11px] font-normal italic text-[#990000]/80">
+                    <span className="font-serif text-[11px] font-normal italic text-[#990000]/80">
                       {vuQuy.lunarDate}
                     </span>
                   </p>
@@ -165,7 +168,7 @@ export function SongHyCeremony() {
                 </p>
                 <p className="mt-0.5 font-serif text-sm font-bold text-[#990000] md:text-base">
                   {thanMat.day}.{thanMat.month}.{thanMat.year}{" "}
-                  <span className="font-sans text-[11px] font-normal italic text-[#990000]/80">
+                  <span className="font-serif text-[11px] font-normal italic text-[#990000]/80">
                     {thanMat.lunarDate}
                   </span>
                 </p>

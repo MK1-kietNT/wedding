@@ -66,16 +66,16 @@ export function OpeningGate({ onOpen }: OpeningGateProps) {
           <SongHyEmblem variant="gold" size="lg" className="animate-float-slow" />
         </motion.div>
 
-        {/* Couple Names in Upright Editorial Serif */}
+        {/* Couple Names in Pinyon Script */}
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.28 }}
-          style={{ fontFamily: "var(--font-gate-serif), Georgia, serif" }}
-          className="relative z-10 mt-6 text-[38px] font-semibold leading-[1.16] tracking-normal text-[#ffe8a4] drop-shadow-sm sm:text-[42px]"
+          style={{ fontFamily: "var(--font-gate-script), cursive" }}
+          className="relative z-10 mt-6 text-[44px] font-normal leading-[1.18] tracking-normal text-[#ffe8a4] drop-shadow-sm sm:text-[50px]"
         >
           <span className="block">{COUPLE_PROFILE.groom.firstName}</span>
-          <span className="my-1 block text-xl font-normal text-[#ffe8a4]/85">
+          <span className="my-1 block text-2xl font-normal text-[#ffe8a4]/85">
             &amp;
           </span>
           <span className="block">{COUPLE_PROFILE.bride.firstName}</span>

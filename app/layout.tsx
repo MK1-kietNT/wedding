@@ -2,8 +2,9 @@ import type { Metadata, Viewport } from "next";
 import {
   Be_Vietnam_Pro,
   Carattere,
-  Cormorant_Garamond,
-  Noto_Serif,
+  Lora,
+  Philosopher,
+  Pinyon_Script,
 } from "next/font/google";
 import { COUPLE_PROFILE } from "@/data/wedding";
 import { getWeddingStructuredData } from "@/lib/structured-data";
@@ -16,9 +17,10 @@ const carattere = Carattere({
   display: "swap",
 });
 
-const notoSerif = Noto_Serif({
+const lora = Lora({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-serif-vn",
   display: "swap",
 });
@@ -30,10 +32,17 @@ const beVietnamPro = Be_Vietnam_Pro({
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
+const pinyonScript = Pinyon_Script({
   subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700"],
-  variable: "--font-gate-serif",
+  weight: ["400"],
+  variable: "--font-gate-script",
+  display: "swap",
+});
+
+const philosopher = Philosopher({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "700"],
+  variable: "--font-couple-serif",
   display: "swap",
 });
 
@@ -81,7 +90,7 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${carattere.variable} ${notoSerif.variable} ${beVietnamPro.variable} ${cormorant.variable}`}
+      className={`${carattere.variable} ${lora.variable} ${beVietnamPro.variable} ${pinyonScript.variable} ${philosopher.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-white text-[#990000] antialiased">
