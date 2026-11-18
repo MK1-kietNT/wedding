@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro, Carattere, Noto_Serif } from "next/font/google";
+import {
+  Be_Vietnam_Pro,
+  Carattere,
+  Cormorant_Garamond,
+  Noto_Serif,
+} from "next/font/google";
 import { COUPLE_PROFILE } from "@/data/wedding";
 import { getWeddingStructuredData } from "@/lib/structured-data";
 import "@/styles/globals.css";
@@ -22,6 +27,13 @@ const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans-vn",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin", "vietnamese"],
+  weight: ["500", "600", "700"],
+  variable: "--font-gate-serif",
   display: "swap",
 });
 
@@ -69,7 +81,7 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${carattere.variable} ${notoSerif.variable} ${beVietnamPro.variable}`}
+      className={`${carattere.variable} ${notoSerif.variable} ${beVietnamPro.variable} ${cormorant.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-white text-[#990000] antialiased">

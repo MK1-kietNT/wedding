@@ -215,7 +215,7 @@ export const INITIAL_GUEST_WISHES: GuestWish[] = [
 ];
 
 export const MUSIC_TRACK: MusicTrack = {
-  title: "Khúc Dạo Đầu Ngày Cưới",
+  title: "Một Đời",
   artist: "Nguyễn Huy & Hà Vy",
-  src: "/music/wedding.mp3",
+  src: "/images/mot-doi.mp3",
 };

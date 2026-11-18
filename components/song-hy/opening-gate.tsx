@@ -66,15 +66,18 @@ export function OpeningGate({ onOpen }: OpeningGateProps) {
           <SongHyEmblem variant="gold" size="lg" className="animate-float-slow" />
         </motion.div>
 
-        {/* Couple Names in Carattere Script */}
+        {/* Couple Names in Upright Editorial Serif */}
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.28 }}
-          className="font-script relative z-10 mt-6 text-[42px] leading-[1.12] tracking-wide text-[#ffe8a4] drop-shadow-sm"
+          style={{ fontFamily: "var(--font-gate-serif), Georgia, serif" }}
+          className="relative z-10 mt-6 text-[38px] font-semibold leading-[1.16] tracking-normal text-[#ffe8a4] drop-shadow-sm sm:text-[42px]"
         >
           <span className="block">{COUPLE_PROFILE.groom.firstName}</span>
-          <span className="my-0.5 block text-2xl text-[#ffe8a4]/85">&amp;</span>
+          <span className="my-1 block text-xl font-normal text-[#ffe8a4]/85">
+            &amp;
+          </span>
           <span className="block">{COUPLE_PROFILE.bride.firstName}</span>
         </motion.h1>
 
@@ -97,10 +100,10 @@ export function OpeningGate({ onOpen }: OpeningGateProps) {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="relative z-10"
         >
-          <p className="text-sm font-medium tracking-[0.14em] text-[#fdf9ec]">
+          <p className="text-sm font-medium tracking-[0.12em] text-[#fdf9ec]">
             {COUPLE_PROFILE.weddingDateDisplay}
           </p>
-          <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#ffe8a4]/90">
+          <p className="mt-2 text-xs font-medium uppercase tracking-[0.22em] text-[#ffe8a4]/90">
             Thân Mời
           </p>
         </motion.div>
