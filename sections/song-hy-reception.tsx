@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CalendarPlus, Heart } from "lucide-react";
+import Image from "next/image";
+import { CalendarPlus } from "lucide-react";
 import { COUPLE_PROFILE, RECEPTION_DETAILS } from "@/data/wedding";
 import { ScrollReveal, SongHyPanel } from "@/components/song-hy/motifs";
 
@@ -138,28 +139,30 @@ export function SongHyReception({ onOpenRsvp }: SongHyReceptionProps) {
                   return <div key={`blank-${idx}`} className="h-8" />;
                 }
 
-                const isReceptionDay = day === 24;
-                const isVuQuyDay = day === 20;
+                const isWeddingDay = day === 20 || day === 24;
 
                 return (
                   <div
                     key={day}
-                    className="relative flex h-8 items-center justify-center"
+                    className="relative flex h-9 items-center justify-center"
                   >
-                    {isReceptionDay ? (
-                      <>
-                        <Heart className="animate-heartbeat h-7 w-7 fill-[#990000] text-[#990000]" />
-                        <span className="absolute text-[11px] font-bold text-white">
+                    {isWeddingDay ? (
+                      <div
+                        title={day === 20 ? "Lễ Vu Quy" : "Lễ Thành Hôn"}
+                        className="relative flex items-center justify-center"
+                      >
+                        <Image
+                          src="/images/fingerprint-heart.jpg"
+                          alt=""
+                          width={44}
+                          height={44}
+                          unoptimized
+                          className="animate-heartbeat h-10 w-10 object-contain mix-blend-multiply"
+                        />
+                        <span className="absolute pt-1.5 text-[11px] font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)]">
                           {day}
                         </span>
-                      </>
-                    ) : isVuQuyDay ? (
-                      <span
-                        title="Lễ Vu Quy"
-                        className="flex h-6 w-6 items-center justify-center rounded-full border border-[#990000] font-semibold text-[#990000]"
-                      >
-                        {day}
-                      </span>
+                      </div>
                     ) : (
                       <span className="font-medium text-[#990000]/85">
                         {day}
