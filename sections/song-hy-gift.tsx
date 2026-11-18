@@ -53,10 +53,19 @@ export function SongHyGift({ onOpenGift }: SongHyGiftProps) {
       </section>
 
       {/* Footer with Seigaiha golden wave pattern */}
-      <footer className="relative overflow-hidden px-5 pb-16 pt-8 text-center">
+      <footer className="relative overflow-hidden px-5 pb-14 pt-8 text-center">
         <SeigaihaFooterPattern />
         <p className="relative z-10 mx-auto max-w-sm text-xs leading-relaxed text-[#fdf9ec]/95 md:text-sm">
           Sự hiện diện của quý khách là niềm vinh hạnh của gia đình chúng tôi!
+        </p>
+        <p className="relative z-10 mt-5 text-[11px] tracking-wide text-[#ffe8a4]/80">
+          Created by NT Kiệt ·{" "}
+          <a
+            href="tel:0389530367"
+            className="underline decoration-[#ffe8a4]/40 underline-offset-2 transition hover:text-[#ffe8a4]"
+          >
+            0389530367
+          </a>
         </p>
       </footer>
     </>
