@@ -89,7 +89,7 @@ export const RECEPTION_DETAILS: ReceptionDetails = {
   venueName: "Tư Gia Nhà Trai",
   venueAddress: "Xóm Đà Sơn 1, Đô Lương, Nghệ An",
   mapsUrl: "https://maps.app.goo.gl/6SGztD8jUWuq3q6c7",
-  mapsEmbedQuery: "Xóm Đà Sơn 1, Đô Lương, Nghệ An",
+  mapsEmbedQuery: "18.884382,105.3058885",
   calendarTitle: "Lễ Thành Hôn Nguyễn Huy & Hà Vy",
   calendarStartISO: "20261224T110000",
   calendarEndISO: "20261224T143000",
