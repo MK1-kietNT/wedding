@@ -53,7 +53,7 @@ export function SongHyPanel({
   return (
     <div className={`relative mx-3 md:mx-8 ${className}`}>
       {/* Main cream card */}
-      <div className="relative rounded-t-2xl rounded-b-[28px] border-[1.5px] border-[#e8c987] bg-[#fdf9ec] px-5 pb-10 pt-8 text-[#990000] shadow-[0_14px_34px_rgba(35,0,0,0.28)] md:px-10 md:pb-12 md:pt-10">
+      <div className="relative rounded-t-2xl rounded-b-[28px] border-[1.5px] border-[#e8c987] bg-[#fdf9ec] px-3.5 pb-10 pt-8 text-[#990000] shadow-[0_14px_34px_rgba(35,0,0,0.28)] sm:px-6 md:px-10 md:pb-12 md:pt-10">
         {/* Inner delicate gold hairline */}
         <div
           aria-hidden="true"

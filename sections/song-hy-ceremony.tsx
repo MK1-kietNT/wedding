@@ -24,26 +24,26 @@ export function SongHyCeremony() {
 
           {/* 2-Column Parents Grid */}
           <div className="mt-6 grid grid-cols-2 divide-x divide-[#e8c987] text-center">
-            <div className="px-2">
+            <div className="px-1 sm:px-2">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-[#990000]/75">
                 Nhà Trai
               </p>
-              <p className="mt-1.5 text-xs font-semibold text-[#990000] md:text-sm">
+              <p className="mt-1.5 whitespace-nowrap text-[10.5px] font-semibold tracking-tight text-[#990000] sm:text-xs sm:tracking-normal md:text-sm">
                 {COUPLE_PROFILE.groom.parents.father}
               </p>
-              <p className="mt-0.5 text-xs font-semibold text-[#990000] md:text-sm">
+              <p className="mt-0.5 whitespace-nowrap text-[10.5px] font-semibold tracking-tight text-[#990000] sm:text-xs sm:tracking-normal md:text-sm">
                 {COUPLE_PROFILE.groom.parents.mother}
               </p>
             </div>
 
-            <div className="px-2">
+            <div className="px-1 sm:px-2">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-[#990000]/75">
                 Nhà Gái
               </p>
-              <p className="mt-1.5 text-xs font-semibold text-[#990000] md:text-sm">
+              <p className="mt-1.5 whitespace-nowrap text-[10.5px] font-semibold tracking-tight text-[#990000] sm:text-xs sm:tracking-normal md:text-sm">
                 {COUPLE_PROFILE.bride.parents.father}
               </p>
-              <p className="mt-0.5 text-xs font-semibold text-[#990000] md:text-sm">
+              <p className="mt-0.5 whitespace-nowrap text-[10.5px] font-semibold tracking-tight text-[#990000] sm:text-xs sm:tracking-normal md:text-sm">
                 {COUPLE_PROFILE.bride.parents.mother}
               </p>
             </div>

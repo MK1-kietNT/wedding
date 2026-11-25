@@ -35,7 +35,7 @@ export const COUPLE_PROFILE: CoupleProfile = {
   locationSummary: "Xóm Đà Sơn 1, Đô Lương, Nghệ An",
   heroQuote:
     "Hai gia đình trân trọng báo tin lễ thành hôn của hai con chúng tôi.",
-  heroImage: "/images/1.jpg",
+  heroImage: "/images/31.jpg",
 };
 
 export const CEREMONY_BLOCKS: ConciseCeremony[] = [
@@ -66,7 +66,7 @@ export const CEREMONY_BLOCKS: ConciseCeremony[] = [
   {
     id: "than-mat",
     title: "Bữa Cơm Thân Mật",
-    time: "16:30",
+    time: "16:00",
     dayOfWeek: "Chủ Nhật",
     day: "20",
     month: "12",
@@ -106,7 +106,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: "photo-2",
-    src: "/images/3.jpg",
+    src: "/images/1.jpg",
     alt: "Khoảnh khắc hạnh phúc của Nguyễn Huy và Hà Vy 2",
     caption: "Save Our Date",
     width: 900,
